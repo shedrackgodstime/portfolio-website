@@ -26,7 +26,6 @@ export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Initialize the form with react-hook-form and zod validation
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,7 +36,6 @@ export function ContactForm() {
     },
   });
 
-  // Handle form submission using client-side sendEmail
   async function onSubmit(data: FormValues) {
     try {
       const templateParams = {
@@ -49,9 +47,13 @@ export function ContactForm() {
       await sendEmail(templateParams);
       setIsSubmitted(true);
       setError(null);
-      form.reset(); // Reset form after successful submission
-    } catch (error: any) {
-      setError(error.message || 'Failed to send message. Please try again.');
+      form.reset();
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("Failed to send message. Please try again.");
+      }
     }
   }
 

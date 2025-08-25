@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "title": "Shedrack Godstime Security-Focused Developer",
+    "description": "Aspiring cybersecurity professional and developer specializing in secure coding, network defense, and building tools with Rust, Python, and modern web technologies."
+  },
+  "personal": {
+    "name": "Shedrack Godstime",
+    "title": "Security-Focused Developer",
+    "location": "Auchi, Edo, Nigeria",
+    "avatar": "/profile-picture.webp",
+    "email": "shedrackgodstime@outlook.com",
+    "phone": "+2348052952123",
+    "workingHours": "Monday - Friday, 9am - 5pm WAT",
+    "availableForWork": true,
+    "badges": ["Cybersecurity", "Node.js", "Rust", "Python", "Networking", "Linux", "React", "TypeScript"],
+    "social": [
+      { "platform": "GitHub", "url": "https://github.com/shedrackgodstime", "icon": "Github" },
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/shedrackgodstime", "icon": "Linkedin" },
+      { "platform": "Twitter", "url": "https://x.com/krixtency", "icon": "Twitter" },
+      { "platform": "Instagram", "url": "https://www.instagram.com/krixtency", "icon": "Instagram" },
+      { "platform": "WhatsApp", "url": "https://wa.me/2348052952123", "icon": "MessageCircle" }
+    ]
+  },
+  "about": {
+    "bio": "I am a security-focused developer building my foundation in cybersecurity while applying it through modern web development. I work across Node.js (React, Next.js, SvelteKit, Vue), Rust, and Python with solid Linux and networking fundamentals. Driven by curiosity, discipline, and adaptability, I build practical projects and tools that strengthen real-world security skills.",
+    "focus": [
+      "Web application security & secure coding",
+      "Security tooling with Rust and Node.js",
+      "Networking fundamentals & Linux hardening"
+    ],
+    "languages": [
+      { "name": "English", "proficiency": "Intermediate", "level": 60, "flag": "🇬🇧" },
+      { "name": "Edo", "proficiency": "Native", "level": 100, "flag": "🇳🇬" }
+    ],
+    "interests": ["CTFs & Labs", "Open-source security", "Systems programming", "Network security", "Tech entrepreneurship"]
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "Experience", "href": "/#experience" },
+    { "label": "Credentials", "href": "/#credentials" },
+    { "label": "Skills", "href": "/#skills" },
+    { "label": "Projects", "href": "/projects" },
+    { "label": "Contacts", "href": "/contacts" }
+  ],
+  "experience": [
+    {
+      "title": "IT Trainee (Networking & Systems)",
+      "company": "Setraco Nigeria Limited",
+      "period": "2024",
+      "description": "Served as an assistant to the IT department during my industrial training, working directly on the company’s live network infrastructure. Gained hands-on experience in networking, system administration, and security testing within a corporate environment.",
+      "achievements": [
+        "Configured and maintained routers, switches, and LAN connections to support company operations",
+        "Performed penetration testing and vulnerability assessments on the internal network and workstations using Nmap and Python scripts",
+        "Monitored traffic and analyzed packets with Wireshark to identify and resolve performance or security issues",
+        "Carried out cable crimping, device setup, and troubleshooting as part of day-to-day IT support tasks"
+      ],
+      "technologies": ["Nmap", "Python", "Linux", "Wireshark", "Cisco Packet Tracer"]
+    },
+    {
+      "title": "Independent Cybersecurity & Development Projects",
+      "company": "Self-Driven / Personal",
+      "period": "Ongoing",
+      "description": "Expanded my expertise through independent cybersecurity simulations, penetration testing labs, and building web applications. Applied curiosity and adaptability to develop practical skills in both security and development.",
+      "achievements": [
+        "Completed penetration testing simulations and CTF-style labs to strengthen real-world attack and defense skills",
+        "Developed security-related scripts and small tools in Python to automate testing tasks",
+        "Experimented with Rust for building secure system-level applications",
+        "Built web applications using React, Next.js, and SvelteKit, focusing on secure coding practices"
+      ],
+      "technologies": ["Rust", "Python", "React", "Next.js", "Linux"]
+    }
+  ],
+  "credentials": {
+    "certifications": [
+      {
+        "name": "Mastering Network Security: Defending Against Cyber Threats",
+        "issuer": "Udemy",
+        "date": "Ongoing",
+        "logo": "/certificates/Udemy_Logo.webp"
+      },
+      {
+        "name": "Rust Programming Fundamentals",
+        "issuer": "Udemy",
+        "date": "Ongoing",
+        "logo": "/certificates/Udemy_Logo.webp"
+      },
+      {
+        "name": "Cisco Certified Network Associate (CCNA)",
+        "issuer": "Cisco",
+        "date": "Planned",
+        "logo": "/certificates/Cisco_Logo.webp"
+      }
+    ],
+    "education": [
+      {
+        "degree": "Higher National Diploma (HND), Cybersecurity",
+        "institution": "Federal Polytechnic Auchi",
+        "year": "2025 - 2026",
+        "logo": "/certificates/Auchi_Polytechnic_Logo.webp"
+      },
+      {
+        "degree": "National Diploma (ND), Computer Science",
+        "institution": "Federal Polytechnic Auchi",
+        "year": "2022 - 2023",
+        "logo": "/certificates/Auchi_Polytechnic_Logo.webp"
+      }
+    ],
+    "skills": [
+      "Penetration Testing",
+      "Network Security",
+      "Rust Programming",
+      "Python Scripting",
+      "Web Development",
+      "Linux Administration",
+      "Packet Analysis",
+      "Secure Coding Practices"
+    ]
+  },
+  "technicalSkills": {
+    "cybersecurity": [
+      "Penetration Testing",
+      "Vulnerability Assessment",
+      "Network Security",
+      "Packet Analysis",
+      "Linux Hardening"
+    ],
+    "development": [
+      "Rust",
+      "Python",
+      "JavaScript/TypeScript",
+      "Node.js",
+      "React",
+      "Next.js",
+      "SvelteKit",
+      "Vue",
+      "Tailwind CSS",
+      "HTML/CSS",
+      "Git"
+    ],
+    "tools": [
+      "Nmap",
+      "Wireshark",
+      "Burp Suite",
+      "Metasploit",
+      "Cisco Packet Tracer",
+      "Linux CLI"
+    ],
+    "softSkills": [
+      "Problem Solving",
+      "Curiosity-Driven Learning",
+      "Adaptability",
+      "Collaboration",
+      "Self-Motivation"
+    ]
+  }
+}

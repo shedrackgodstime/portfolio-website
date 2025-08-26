@@ -29,10 +29,10 @@ const escapeHtml = (str: string): string =>
 
 // Interface for EmailJS template parameters
 interface EmailJSTemplateParams {
-  html: string; // HTML content for {{{html}}} placeholder
+  html: string;
   to_email: string;
   subject: string;
-  [key: string]: unknown; // Add index signature
+  [key: string]: unknown; // Index signature for Record<string, unknown>
 }
 
 // Interface for parameters received from the client
@@ -100,7 +100,11 @@ export async function sendEmail(params: ClientEmailParams) {
       status: response.status, // e.g., 200 for success
       text: response.text, // e.g., "OK"
     };
-  } catch (error: any) {
-    throw new Error(`Failed to send email to ${EMAILJS_TO_EMAIL}: ${error.message || 'Unknown error'}`);
+  } catch (error) {
+    let errorMessage = 'Unknown error';
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
+    throw new Error(`Failed to send email to ${EMAILJS_TO_EMAIL}: ${errorMessage}`);
   }
 }

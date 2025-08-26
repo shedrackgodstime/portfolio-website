@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { getNavItems, getPersonalInfo } from "@/lib/data"
+import { usePathname } from "next/navigation"
 
 export function PortfolioHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -13,53 +14,69 @@ export function PortfolioHeader() {
 
   const navItems = getNavItems()
   const personalInfo = getPersonalInfo()
+  const pathname = usePathname() // reactive path
 
+  // Scroll handling for homepage sections
   useEffect(() => {
+    if (typeof window === "undefined") return
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
 
-      // Determine active section based on scroll position
-      const sections = navItems.filter((item) => item.href.startsWith("#")).map((item) => item.href.substring(1))
+      if (pathname === "/") {
+        const sections = navItems
+          .filter((item) => item.href.startsWith("/#"))
+          .map((item) => item.href.substring(2)) // remove "/#"
 
-      // Find the current section in view
-      for (const section of sections.reverse()) {
-        // Check from bottom to top
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 150) {
-            // If section is at or above 150px from viewport top
-            setActiveSection(section)
-            break
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section)
+          if (element) {
+            const rect = element.getBoundingClientRect()
+            if (rect.top <= 150) {
+              setActiveSection(section)
+              return
+            }
           }
         }
-      }
 
-      // If scrolled to top, set Home as active
-      if (window.scrollY < 100) {
-        setActiveSection("")
+        setActiveSection("") // top of page → Home
       }
     }
 
     window.addEventListener("scroll", handleScroll)
+    handleScroll() // initial check
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [navItems])
+  }, [navItems, pathname])
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen)
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
+
+  // Determine if a nav item is active
+  const isLinkActive = (href: string) => {
+    const homeSections = ["/#experience", "/#credentials", "/#skills"]
+
+    if (href === "/") {
+      return pathname === "/" && !activeSection
+    }
+
+    if (homeSections.includes(href)) {
+      return pathname === "/" && activeSection === href.substring(2)
+    }
+
+    // Full page route
+    return pathname === href
   }
 
   return (
-<header
-  className={cn(
-    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-    mobileMenuOpen
-      ? "bg-transparent"
-      : scrolled
-      ? "bg-zinc-900/90 backdrop-blur-md shadow-md py-2"
-      : "bg-transparent"
-  )}
->
+    <header
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
+        mobileMenuOpen
+          ? "bg-transparent"
+          : scrolled
+          ? "bg-zinc-900/90 backdrop-blur-md shadow-md py-2"
+          : "bg-transparent"
+      )}
+    >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo/Name */}
         <Link href="/" className="flex items-center group">
@@ -75,7 +92,7 @@ export function PortfolioHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => {
-            const isActive = item.href === "/" ? activeSection === "" : activeSection === item.href.substring(1)
+            const active = isLinkActive(item.href)
 
             return (
               <Link
@@ -83,19 +100,15 @@ export function PortfolioHeader() {
                 href={item.href}
                 className={cn(
                   "px-3 py-2 text-sm relative group transition-all duration-300",
-                  isActive ? "text-cyan-400" : "text-zinc-400 hover:text-white",
+                  active ? "text-cyan-400" : "text-zinc-400 hover:text-white"
                 )}
               >
                 <span className="relative z-10">{item.label}</span>
-
-                {/* Hover effect - subtle background glow */}
                 <span className="absolute inset-0 bg-cyan-500/0 rounded-md group-hover:bg-cyan-500/10 transition-all duration-300"></span>
-
-                {/* Hover effect - bottom border */}
                 <span
                   className={cn(
                     "absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-linear-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-4/5",
-                    isActive && "w-4/5",
+                    active && "w-4/5"
                   )}
                 ></span>
               </Link>
@@ -118,12 +131,12 @@ export function PortfolioHeader() {
       <div
         className={cn(
           "fixed inset-0 bg-black/95 z-40 flex flex-col pt-20 px-4 md:hidden transition-all duration-500",
-          mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none",
+          mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
         )}
       >
         <nav className="flex flex-col space-y-4 ">
           {navItems.map((item, index) => {
-            const isActive = item.href === "/" ? activeSection === "" : activeSection === item.href.substring(1)
+            const active = isLinkActive(item.href)
 
             return (
               <Link
@@ -131,7 +144,7 @@ export function PortfolioHeader() {
                 href={item.href}
                 className={cn(
                   "px-3 py-4 text-lg border-b border-zinc-800 relative group transition-all duration-300",
-                  isActive ? "text-cyan-400 border-cyan-400/30" : "text-zinc-300 hover:text-white hover:pl-5",
+                  active ? "text-cyan-400 border-cyan-400/30" : "text-zinc-300 hover:text-white hover:pl-5"
                 )}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
@@ -141,12 +154,10 @@ export function PortfolioHeader() {
                 }}
               >
                 <span className="relative z-10">{item.label}</span>
-
-                {/* Hover effect - left border accent */}
                 <span
                   className={cn(
                     "absolute left-0 top-1/2 -translate-y-1/2 w-0 h-1/2 bg-linear-to-b from-cyan-400/20 to-blue-500/20 transition-all duration-300 group-hover:w-1",
-                    isActive && "w-1",
+                    active && "w-1"
                   )}
                 ></span>
               </Link>

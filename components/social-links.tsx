@@ -20,6 +20,8 @@ export function SocialLinks({ socialLinks }: SocialLinksProps) {
         return (
           <a
             key={index}
+            target="_blank" 
+            rel="noopener noreferrer"
             href={link.url}
             className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-800 flex items-center justify-center hover:bg-zinc-700 transition-colors"
             aria-label={link.platform}

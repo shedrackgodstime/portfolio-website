@@ -16,11 +16,11 @@ export default function ProjectsPage() {
     <main>
       {/* Header */}
       <AnimatedSection animation="fade-up" className="mb-8 sm:mb-10 md:mb-12">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-          All My Projects
-        </h1>
-        <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-zinc-400 max-w-xl sm:max-w-2xl">
-          Explore a collection of my work — from security-focused tools to web
+        <h3 className="text-lg font-medium">
+          My Projects
+        </h3>
+        <p className="text-zinc-300 max-w-xl">
+          Explore a collection of my work from security-focused tools to web
           applications. Each project reflects my growth, creativity, and passion
           for technology.
         </p>

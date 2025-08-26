@@ -1,4 +1,195 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Dark mode */
 @custom-variant dark (&:is(.dark *));
+
+
+/* Define theme customizations */
+@theme inline {
+  /* Colors (merged from both configurations) */
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Container */
+  --container-padding: 2rem;
+  --container-max-width-2xl: 1400px;
+
+  /* Transition Delays */
+  --transition-delay-100: 100ms;
+  --transition-delay-200: 200ms;
+  --transition-delay-300: 300ms;
+  --transition-delay-400: 400ms;
+  --transition-delay-500: 500ms;
+  --transition-delay-600: 600ms;
+  --transition-delay-700: 700ms;
+  --transition-delay-800: 800ms;
+  --transition-delay-900: 900ms;
+  --transition-delay-1000: 1000ms;
+}
+
+/* Define CSS variables for light and dark modes */
+:root {
+  --border: 240 5% 26%; /* Updated from your CSS */
+  --input: 240 5% 26%; /* Updated */
+  --ring: 186 100% 50%; /* Updated */
+  --background: 0 0% 0%; /* Updated (black) */
+  --foreground: 0 0% 100%; /* Updated (white) */
+  --primary: 186 100% 50%; /* Updated */
+  --primary-foreground: 0 0% 0%; /* Updated */
+  --secondary: 240 5% 10%; /* Updated */
+  --secondary-foreground: 0 0% 100%; /* Updated */
+  --destructive: 0 100% 50%; /* Updated */
+  --destructive-foreground: 0 0% 100%; /* Updated */
+  --muted: 240 5% 20%; /* Updated */
+  --muted-foreground: 240 5% 65%; /* Updated */
+  --accent: 240 5% 15%; /* Updated */
+  --accent-foreground: 0 0% 100%; /* Updated */
+  --popover: 240 10% 4%; /* Updated */
+  --popover-foreground: 0 0% 100%; /* Updated */
+  --card: 240 10% 4%; /* Updated */
+  --card-foreground: 0 0% 100%; /* Updated */
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Define dark mode variables (adjust as needed for contrast) */
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Keyframes for animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Apply animations to Tailwind classes */
+.accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thumb-zinc-700::-webkit-scrollbar-thumb {
+    background-color: #3f3f46;
+    border-radius: 3px;
+  }
+
+  .scrollbar-track-zinc-800\/50::-webkit-scrollbar-track {
+    background-color: rgba(39, 39, 42, 0.5);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Base layer for applying Tailwind classes */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,36 +1,67 @@
-export interface ProjectGalleryImage {
-  url: string
-  caption?: string
-}
-
-export interface RelatedProject {
-  slug: string
-  title: string
-  category: string
-  image: string
-}
-
-export interface Project {
-  id: number
-  slug: string
-  title: string
-  category: string
-  shortDescription: string
-  description: string[]
-  features: string[]
-  technologies: string[]
-  coverImage: string
-  thumbnailImage: string
-  gallery?: ProjectGalleryImage[]
-  client?: string
-  timeline: string
-  role: string
-  liveUrl?: string
-  githubUrl?: string
-  relatedProjects?: RelatedProject[]
-}
+import { Project, RelatedProject } from "./types"
 
 const projects: Project[] = [
+
+  {
+  id: 1,
+  slug: "surgewave",
+  title: "SurgeWave",
+  category: "Web Application",
+  shortDescription: "A modern logistics and shipping platform with responsive UI, real-time tracking, and account management features.",
+  description: [
+    "SurgeWave is a comprehensive logistics platform designed to streamline global shipping. Users can choose from Standard, Express, or VIP shipping options with real-time tracking and dedicated support.",
+    "The platform includes full account management features, including login, user settings, and profile pages, making it suitable for personal and business use. Its clean, modern interface ensures a seamless experience across devices.",
+    "Built with Next.js, Tailwind CSS, and Supabase, SurgeWave integrates chat functionality and internationalization, demonstrating both front-end and back-end development skills."
+  ],
+  features: [
+    "Responsive UI with modern design and interactive elements",
+    "Shipping service tiers: Standard, Express, VIP with pricing and delivery options",
+    "Real-time shipment tracking system",
+    "User authentication and account management",
+    "Integrated chat and support system",
+    "Internationalization for multiple locales",
+    "Deployed on Vercel for production readiness"
+  ],
+  technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "getstream-chat", "next-intl", "qrcode", "lucide-react"],
+  coverImage: "/projects/surgewave-cover.webp",
+  thumbnailImage: "/projects/surgewave-thumbnail.webp",
+  gallery: [
+    { url: "/projects/surgewave-screen1.webp", caption: "Home Page with Hero" },
+    { url: "/projects/surgewave-screen2.webp", caption: "Shipping Plans and Pricing" },
+    { url: "/projects/surgewave-screen3.webp", caption: "User Account and Profile Page" },
+    { url: "/projects/surgewave-screen4.webp", caption: "Shipment Tracking and Dashboard" }
+  ],
+  timeline: "1 months (Q2 2025)",
+  role: "Full-Stack Developer & Designer",
+  liveUrl: "https://surgewave.vercel.app/",
+  githubUrl: "",
+  relatedProjects: [
+/*    {
+      slug: "finance-dashboard",
+      title: "Finance Dashboard",
+      category: "Web Application",
+      image: "/finance-dashboard-cover.png",
+    },
+    {
+      slug: "job-finder-app",
+      title: "Job Finder App",
+      category: "Mobile App",
+      image: "/job-finder-cover.png",
+    },
+    */
+  ],
+},
+
+
+
+
+
+
+
+
+//Other examples
+/*
+
   {
     id: 1,
     slug: "job-finder-app",
@@ -176,6 +207,9 @@ const projects: Project[] = [
       },
     ],
   },
+ 
+ */
+
 ]
 
 export { projects }

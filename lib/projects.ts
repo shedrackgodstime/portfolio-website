@@ -55,6 +55,7 @@ const projects: Project[] = [
             image: "/job-finder-cover.png",
           },
           */
+         
     ],
   },
 

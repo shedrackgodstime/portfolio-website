@@ -45,7 +45,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-4 sm:p-6">
                   <div className="text-xs sm:text-sm text-cyan-400 mb-1 sm:mb-2">{project.category}</div>
                   <h1 className="text-xl sm:text-3xl md:text-4xl font-bold">{project.title}</h1>
@@ -91,7 +91,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         <Button
                           asChild
                           size="sm"
-                          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
+                          className="bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
                         >
                           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
@@ -177,7 +177,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         <AnimatedSection key={index} animation="fade-up" delay={100 * (index + 1)}>
                           <Link href={`/projects/${related.slug}`} className="block group">
                             <div className="flex items-center gap-2 sm:gap-3">
-                              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden flex-shrink-0">
+                              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden shrink-0">
                                 <Image
                                   src={related.image || "/placeholder.svg"}
                                   alt={related.title}

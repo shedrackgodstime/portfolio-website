@@ -37,7 +37,7 @@ export function ExperienceCard({
         <ul className="space-y-2">
           {achievements.map((achievement, index) => (
             <li key={index} className="flex text-sm text-zinc-300">
-              <CheckCircle2 className="w-4 h-4 mr-2 text-cyan-400 flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-4 h-4 mr-2 text-cyan-400 shrink-0 mt-0.5" />
               <span>{achievement}</span>
             </li>
           ))}

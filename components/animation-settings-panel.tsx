@@ -95,7 +95,7 @@ export function AnimationSettingsPanel() {
                           size="sm"
                           className={`h-auto py-2 px-1 flex flex-col items-center justify-center text-xs ${
                             settings.preset === preset.value
-                              ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/50"
+                              ? "bg-linear-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/50"
                               : ""
                           }`}
                           onClick={() => applyPreset(preset.value)}

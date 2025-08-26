@@ -20,7 +20,7 @@ export function ProjectCard({ title, category, image, slug }: ProjectCardProps) 
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent"></div>
           <div className="absolute bottom-0 left-0 p-3 sm:p-4">
             <div className="text-xs text-cyan-400 mb-1">{category}</div>
             <h3 className="font-medium text-sm sm:text-base">{title}</h3>

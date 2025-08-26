@@ -14,19 +14,19 @@ export default function ProjectsPage() {
 
   return (
     <main>
-   {/* Header */}
-<AnimatedSection animation="fade-up" className="mb-8 sm:mb-10 md:mb-12">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-    All My Projects
-  </h1>
-  <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-zinc-400 max-w-xl sm:max-w-2xl">
-    Explore a collection of my work — from security-focused tools to web
-    applications. Each project reflects my growth, creativity, and passion
-    for technology.
-  </p>
-</AnimatedSection>
+      {/* Header */}
+      <AnimatedSection animation="fade-up" className="mb-8 sm:mb-10 md:mb-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          All My Projects
+        </h1>
+        <p className="mt-2 sm:mt-3 text-sm sm:text-base md:text-lg text-zinc-400 max-w-xl sm:max-w-2xl">
+          Explore a collection of my work — from security-focused tools to web
+          applications. Each project reflects my growth, creativity, and passion
+          for technology.
+        </p>
+      </AnimatedSection>
 
-      
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {projects.map((project, index) => (
@@ -78,7 +78,7 @@ function ProjectCard({
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent"></div>
         </div>
       </Link>
       <CardContent className="p-4 sm:p-6">
@@ -103,7 +103,7 @@ function ProjectCard({
             <Button
               asChild
               size="sm"
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
+              className="bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
             >
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />

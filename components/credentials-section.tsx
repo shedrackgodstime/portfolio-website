@@ -28,7 +28,7 @@ export function CredentialsSection() {
                 {credentialsInfo.certifications.map((cert, index) => (
                   <div key={index} className="flex items-start bg-zinc-800/30 p-2 sm:p-3 rounded-lg">
                     {cert.logo && (
-                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 flex-shrink-0 bg-zinc-800">
+                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 shrink-0 bg-zinc-800">
                         <Image
                           src={cert.logo || "/placeholder.svg"}
                           alt={cert.issuer}
@@ -60,7 +60,7 @@ export function CredentialsSection() {
                 {credentialsInfo.education.map((edu, index) => (
                   <div key={index} className="flex items-start bg-zinc-800/30 p-2 sm:p-3 rounded-lg">
                     {edu.logo && (
-                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 flex-shrink-0 bg-zinc-800">
+                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 shrink-0 bg-zinc-800">
                         <Image
                           src={edu.logo || "/placeholder.svg"}
                           alt={edu.institution}

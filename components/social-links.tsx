@@ -1,20 +1,21 @@
-import * as LucideIcons from "lucide-react"
+import * as LucideIcons from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 
 interface SocialLink {
-  platform: string
-  url: string
-  icon: string
+  platform: string;
+  url: string;
+  icon: string;
 }
 
 interface SocialLinksProps {
-  socialLinks: SocialLink[]
+  socialLinks: SocialLink[];
 }
 
 export function SocialLinks({ socialLinks }: SocialLinksProps) {
   return (
-    <div className="flex justify-center gap-2 sm:gap-3 my-2 sm:my-3">
+    <div className="flex  gap-2 sm:gap-3 my-2 sm:my-3">
       {socialLinks.map((link, index) => {
-        const IconComponent = LucideIcons[link.icon as keyof typeof LucideIcons]
+        const IconComponent = LucideIcons[link.icon as keyof typeof LucideIcons] as ComponentType<SVGProps<SVGSVGElement>>;
 
         return (
           <a
@@ -25,8 +26,8 @@ export function SocialLinks({ socialLinks }: SocialLinksProps) {
           >
             {IconComponent && <IconComponent className="w-3 h-3 sm:w-4 sm:h-4" />}
           </a>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

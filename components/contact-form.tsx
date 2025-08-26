@@ -60,7 +60,7 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center p-6">
-        <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+        <div className="w-16 h-16 mb-4 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
           <SendIcon className="w-6 h-6 text-white" />
         </div>
         <h4 className="text-lg font-medium mb-2">Message Sent!</h4>
@@ -155,7 +155,7 @@ export function ContactForm() {
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+          className="w-full bg-linear-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? (

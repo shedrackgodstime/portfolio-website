@@ -2,8 +2,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/contact-form"
 import { UserIcon, Mail, Phone, MapPin, Clock } from "lucide-react"
 import { SocialLinks } from "@/components/social-links"
+import { getPersonalInfo } from "@/lib/data";
 
 export function ContactSection() {
+  const personalInfo = getPersonalInfo();
   return (
     <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm col-span-1 md:col-span-3 lg:col-span-4 overflow-hidden">
       <CardContent className="p-0">
@@ -27,10 +29,10 @@ export function ContactSection() {
                   <div>
                     <h4 className="font-medium">Email</h4>
                     <a
-                      href="mailto:jane.doe@example.com"
+                      href={`mailto:${personalInfo.email}`}
                       className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
                     >
-                      jane.doe@example.com
+                      {personalInfo.email}
                     </a>
                   </div>
                 </div>
@@ -39,8 +41,8 @@ export function ContactSection() {
                   <Phone className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Phone</h4>
-                    <a href="tel:+14155552671" className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors">
-                      +1 (415) 555-2671
+                    <a href={`tel:${personalInfo.phone}`} className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors">
+                      {personalInfo.phone}
                     </a>
                   </div>
                 </div>
@@ -57,18 +59,18 @@ export function ContactSection() {
                   <Clock className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Working Hours</h4>
-                    <p className="text-sm text-zinc-400">Monday - Friday, 9am - 5pm PST</p>
+                    <p className="text-sm text-zinc-400">{personalInfo.location}</p>
                   </div>
                 </div>
               </div>
 
               <div className="pt-4">
                 <h4 className="font-medium mb-3">Connect with me</h4>
-                <SocialLinks />
+                 <SocialLinks socialLinks={personalInfo.social} />
               </div>
             </div>
           </div>
-
+ 
           {/* Contact Form */}
           <div className="lg:col-span-2 p-6 lg:p-8 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-800/50">
             <h3 className="text-lg font-medium mb-6">Send a Message</h3>

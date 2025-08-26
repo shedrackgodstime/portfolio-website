@@ -1,21 +1,21 @@
-"use client";
-
+"use client"
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link"; // Added for navigation
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SocialLinks } from "@/components/social-links";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { User, MapPin, Mail, Phone, Languages, Clock, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden"; // Import VisuallyHidden
 import { getPersonalInfo, getAboutInfo } from "@/lib/data";
 
 export function EnhancedProfile() {
   const [activeTab, setActiveTab] = useState("about");
-  const [open, setOpen] = useState(false); // State for Dialog
 
+  
   const personalInfo = getPersonalInfo();
   const aboutInfo = getAboutInfo();
 
@@ -23,22 +23,24 @@ export function EnhancedProfile() {
     <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm col-span-1 flex flex-col">
       <CardContent className="p-0">
         {/* Profile Header */}
-        <div className="bg-gradient-to-r from-zinc-800/50 to-zinc-900/50 p-4 sm:p-6 flex flex-col items-center border-b border-zinc-800">
+        <div className="bg-linear-to-r from-zinc-800/50 to-zinc-900/50 p-4 sm:p-6 flex flex-col items-center border-b border-zinc-800">
           <div className="flex flex-col sm:flex-col items-center w-full">
-            <Dialog open={open} onOpenChange={setOpen}>
+            <Dialog>
               <DialogTrigger asChild>
                 <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden mb-4 border-2 border-cyan-400/20 ring-4 ring-zinc-800/50">
                   <Image
                     src={personalInfo.avatar || "/placeholder.svg"}
                     alt={personalInfo.name}
                     fill
-                    height={500}
-                    width={500}
                     className="object-cover"
                   />
                 </div>
               </DialogTrigger>
-              <DialogContent className="p-4 max-w-[90vw] sm:max-w-[80vw] md:max-w-[48rem] max-h-[80vh] border-zinc-800 bg-zinc-900/70 overflow-auto">
+              <DialogContent className="p-4 max-w-[90vw] sm:max-w-[80vw] md:max-w-3xl max-h-[80vh] border-zinc-800 bg-zinc-900/70 overflow-auto">
+                {/* Add VisuallyHidden DialogTitle for accessibility */}
+                <VisuallyHidden>
+                  <DialogTitle>{personalInfo.name}&apos;s Profile Image</DialogTitle>
+                </VisuallyHidden>
                 <div className="relative w-full h-auto">
                   <Image
                     src={personalInfo.avatar || "/placeholder.svg"}
@@ -73,7 +75,7 @@ export function EnhancedProfile() {
           <SocialLinks socialLinks={personalInfo.social} />
         </div>
 
-        {/* Tabbed Content */}
+        {/* Rest of the component remains unchanged */}
         <Tabs defaultValue="about" className="w-full" onValueChange={setActiveTab}>
           <div className="border-b border-zinc-800">
             <TabsList className="w-full bg-transparent border-b border-zinc-800 rounded-none h-auto p-0">
@@ -136,7 +138,7 @@ export function EnhancedProfile() {
                     </div>
                     <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                        className="h-full bg-linear-to-r from-cyan-500 to-blue-500 rounded-full"
                         style={{ width: `${language.level}%` }}
                       ></div>
                     </div>

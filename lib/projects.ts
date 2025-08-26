@@ -4,6 +4,7 @@ const projects: Project[] = [
 
   {
     id: 1,
+    updatedAt: "2025-08-26T00:00:00.000Z",
     slug: "surgewave",
     title: "SurgeWave",
     category: "Web Application",
@@ -63,6 +64,7 @@ const projects: Project[] = [
 
   {
     id: 2,
+    updatedAt: "2025-08-26T00:00:00.000Z",
     slug: "shedrack-portfolio",
     title: "Shedrack Godstime Portfolio",
     category: "Web Application",
@@ -112,6 +114,7 @@ const projects: Project[] = [
   
     {
       id: 1,
+      updatedAt: "",
       slug: "job-finder-app",
       title: "Job Finder App",
       category: "Mobile App",
@@ -159,6 +162,7 @@ const projects: Project[] = [
     },
     {
       id: 2,
+      updatedAt: "",
       slug: "finance-dashboard",
       title: "Finance Dashboard",
       category: "Web Application",

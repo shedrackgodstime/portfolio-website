@@ -1,0 +1,50 @@
+{
+  "siteUrl": "https://your-domain.com",
+  "title": "Shedrack Godstime | Security-Focused Developer & Cybersecurity Expert",
+  "description": "Portfolio of Shedrack Godstime (aka Kristency). A cybersecurity-focused developer specializing in secure coding, network defense, and modern web technologies like Rust, Python, and Node.js.",
+  "keywords": [
+    "Shedrackgodstime",
+    "Shedrack",
+    "Godstime",
+    "Kristency",
+    "Cybersecurity Expert",
+    "Best Developer",
+    "Security-focused developer",
+    "Rust developer",
+    "Node.js developer",
+    "Nigeria developer"
+  ],
+  "openGraph": {
+    "title": "Shedrack Godstime | Security-Focused Developer",
+    "description": "Cybersecurity professional and developer building secure apps with Rust, Node.js, and Python.",
+    "url": "https://your-domain.com",
+    "siteName": "Shedrack Godstime",
+    "images": [
+      {
+        "url": "/og-image.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "Shedrack Godstime Portfolio"
+      }
+    ],
+    "locale": "en_US",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "title": "Shedrack Godstime | Cybersecurity & Web Developer",
+    "description": "Portfolio of Shedrack Godstime (Kristency) - Security-Focused Developer.",
+    "images": ["/og-image.png"],
+    "creator": "@your_twitter_handle"
+  },
+  "author": {
+    "name": "Shedrack Godstime",
+    "alternateNames": ["Shedrack", "Godstime", "Kristency"],
+    "jobTitle": "Cybersecurity Developer",
+    "sameAs": [
+      "https://github.com/yourusername",
+      "https://linkedin.com/in/yourusername",
+      "https://twitter.com/yourusername"
+    ]
+  }
+}

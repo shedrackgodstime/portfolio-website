@@ -29,4 +29,5 @@ export interface Project {
   liveUrl?: string
   githubUrl?: string
   relatedProjects?: RelatedProject[]
+  updatedAt: string;
 }

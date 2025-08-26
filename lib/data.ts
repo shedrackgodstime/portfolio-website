@@ -1,3 +1,4 @@
+import seoData from "@/data/seo-data.json";
 import portfolioData from "@/data/portfolio-data.json"
 import { projects, getAllProjects, getProjectBySlug, getRelatedProjects } from "@/lib/projects"
 
@@ -43,4 +44,16 @@ export function getTechnicalSkillsInfo() {
 // Helper function to get meta information
 export function getMetaInfo() {
   return data.meta
+}
+
+
+// Export all SEO data
+export const seo = seoData;
+
+// Type definition
+export type SeoData = typeof seoData;
+
+// Helper to access SEO info
+export function getSeoInfo() {
+  return seo;
 }

@@ -1,11 +1,10 @@
-// /lib/emailjs.ts
 import emailjs from '@emailjs/browser';
 
 // EmailJS configuration (client-side, use environment variables)
-const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-const EMAILJS_TO_EMAIL = process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
+const EMAILJS_TO_EMAIL = process.env.NEXT_PUBLIC_EMAILJS_TO_EMAIL!;
 
 // Ensure all required env vars are set
 if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY || !EMAILJS_TO_EMAIL) {
@@ -33,6 +32,7 @@ interface EmailJSTemplateParams {
   html: string; // HTML content for {{{html}}} placeholder
   to_email: string;
   subject: string;
+  [key: string]: unknown; // Add index signature
 }
 
 // Interface for parameters received from the client
@@ -100,7 +100,7 @@ export async function sendEmail(params: ClientEmailParams) {
       status: response.status, // e.g., 200 for success
       text: response.text, // e.g., "OK"
     };
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(`Failed to send email to ${EMAILJS_TO_EMAIL}: ${error.message || 'Unknown error'}`);
   }
 }

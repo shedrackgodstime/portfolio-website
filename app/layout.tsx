@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* ✅ Schema.org JSON-LD */}
+        {/* ✅ Schema.org JSON-LD with richer Person info */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -49,10 +49,31 @@ export default function RootLayout({
               alternateName: seo.author.alternateNames,
               description: seo.description,
               jobTitle: seo.author.jobTitle,
+              gender: "Male",
+              birthPlace: {
+                "@type": "Place",
+                name: "Auchi, Edo State, Nigeria",
+              },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Auchi",
+                addressRegion: "Edo",
+                addressCountry: "Nigeria",
+              },
               url: seo.siteUrl,
+              image: [
+                "https://yourdomain.com/images/profile.jpg",
+                "https://yourdomain.com/images/portfolio-banner.jpg",
+              ],
               sameAs: seo.author.sameAs,
             }),
           }}
+        />
+
+        {/* ✅ Extra hint for crawlers */}
+        <link
+          rel="image_src"
+          href="https://yourdomain.com/images/profile.jpg"
         />
       </head>
       <body className={inter.className}>

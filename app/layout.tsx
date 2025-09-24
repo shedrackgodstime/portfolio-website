@@ -63,7 +63,7 @@ export default function RootLayout({
               url: seo.siteUrl,
               image: [
                 "/profile-picture.webp",
-                "https://yourdomain.com/images/portfolio-banner.jpg",
+                "/profile-picture2.webp",
               ],
               sameAs: seo.author.sameAs,
             }),

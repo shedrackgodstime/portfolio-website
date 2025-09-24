@@ -64,6 +64,7 @@ export default function RootLayout({
               image: [
                 "/profile-picture.webp",
                 "/profile-picture2.webp",
+                "/profile-picture3.webp",
               ],
               sameAs: seo.author.sameAs,
             }),

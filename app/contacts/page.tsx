@@ -24,6 +24,7 @@ export default function ContactPage() {
               </p>
 
               <div className="space-y-4">
+                {/* Email */}
                 <div className="flex items-start">
                   <Mail className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
@@ -37,36 +38,47 @@ export default function ContactPage() {
                   </div>
                 </div>
 
+                {/* Phone */}
                 <div className="flex items-start">
                   <Phone className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Phone</h4>
-                    <a href={`tel:${personalInfo.phone}`} className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors">
+                    <a
+                      href={`tel:${personalInfo.phone}`}
+                      className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
+                    >
                       {personalInfo.phone}
                     </a>
                   </div>
                 </div>
 
+                {/* Location */}
                 <div className="flex items-start">
                   <MapPin className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Location</h4>
-                    <p className="text-sm text-zinc-400">San Francisco, California</p>
+                    <p className="text-sm text-zinc-400">{personalInfo.location}</p>
                   </div>
                 </div>
 
+                {/* Working Hours / Availability */}
                 <div className="flex items-start">
                   <Clock className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Working Hours</h4>
-                    <p className="text-sm text-zinc-400">{personalInfo.location}</p>
+                    <p className="text-sm text-zinc-400">
+                      {personalInfo.availableForWork
+                        ? personalInfo.workingHours
+                        : "Currently unavailable for work"}
+                    </p>
                   </div>
                 </div>
               </div>
 
+              {/* Social Links */}
               <div className="pt-4">
                 <h4 className="font-medium mb-3">Connect with me</h4>
-                 <SocialLinks socialLinks={personalInfo.social} />
+                <SocialLinks socialLinks={personalInfo.social} />
               </div>
             </div>
           </div>
